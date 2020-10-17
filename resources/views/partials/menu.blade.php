@@ -44,6 +44,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('subscription_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.subscriptions.index") }}" class="nav-link {{ request()->is("admin/subscriptions") || request()->is("admin/subscriptions/*") ? "active" : "" }}">
+                            <i class="fa-fw nav-icon fas fa-shopping-cart">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.subscription.title') }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 @can('currency_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.currencies.index") }}" class="nav-link {{ request()->is("admin/currencies") || request()->is("admin/currencies/*") ? "active" : "" }}">
