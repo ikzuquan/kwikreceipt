@@ -36,6 +36,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Receipts
     Route::delete('receipts/destroy', 'ReceiptsController@massDestroy')->name('receipts.massDestroy');
     Route::resource('receipts', 'ReceiptsController');
+
+    // Subscriptions
+    Route::resource('subscriptions', 'SubscriptionsController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
 // Change password
